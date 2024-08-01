@@ -1,7 +1,6 @@
+import 'package:c11_exam_sun_online/audi_books/custom_cards.dart';
 import 'package:c11_exam_sun_online/audi_books/custom_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'custom_row.dart';
 
@@ -11,7 +10,6 @@ class AudiBooks extends StatefulWidget {
   @override
   State<AudiBooks> createState() => _AudiBooksState();
 }
-
 
 class _AudiBooksState extends State<AudiBooks> {
   List images = [
@@ -24,7 +22,7 @@ class _AudiBooksState extends State<AudiBooks> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,10 +44,9 @@ class _AudiBooksState extends State<AudiBooks> {
             children: [
               CustomRow(
                 text1: "categories",
-                text2: "see more",
               ),
               CustomTab(items: items),
-              CustomRow(text1: "Recommended For You", text2: "see more"),
+              CustomRow(text1: "Recommended For You"),
               SizedBox(
                 height: 300,
                 child: Padding(
@@ -57,7 +54,7 @@ class _AudiBooksState extends State<AudiBooks> {
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return  Image.asset(
+                        return Image.asset(
                           images[index],
                           height: 300,
                           width: 200,
@@ -66,65 +63,8 @@ class _AudiBooksState extends State<AudiBooks> {
                       itemCount: 2),
                 ),
               ),
-              CustomRow(text1: "Best Seller", text2: "see more"),
-              Column(
-                children: [
-                  CarouselSlider.builder(
-                    itemCount: 2,
-                    itemBuilder: (BuildContext context, int itemIndex,
-                        int pageViewIndex) =>
-                        Padding(
-                            padding:
-                            const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Card(
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/Image Placeholder 240x240.png",
-                                    height: 120,
-                                    width: 120,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 30.0),
-                                    child: Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 15.0),
-                                      child: Column(
-                                        children: [
-                                          Text(
-                                            "Light Mage",
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                              color: const Color(0xff010104),),
-                                          ),
-                                          Text(
-                                            "Laurie Forest",
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400,
-                                              color:const Color(0xff6A6A8B),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )),
-                    options: CarouselOptions(
-                        height: 144,
-                        enableInfiniteScroll: true,
-                        reverse: false,
-                        autoPlay: false,
-                        autoPlayInterval: const Duration(seconds: 3),
-                        enlargeCenterPage: false,
-                        scrollDirection: Axis.horizontal,
-                        disableCenter: true),
-                  ),
-                ],
-              ),
+              CustomRow(text1: "Best Seller"),
+              const CustomCards(),
             ],
           ),
           Positioned(
@@ -155,7 +95,8 @@ class _AudiBooksState extends State<AudiBooks> {
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(
-                    size: 51, AssetImage("assets/images/Document.png"),
+                    size: 51,
+                    AssetImage("assets/images/Document.png"),
                   ),
                   label: "Library",
                 ),

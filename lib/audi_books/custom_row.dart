@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomRow extends StatelessWidget {
-  CustomRow({super.key,required this.text1,required this.text2});
+   CustomRow({super.key,required this.text1});
   String text1;
-  String text2;
   @override
   Widget build(BuildContext context) {
-    return    Padding(
+    return   Padding(
       padding: const EdgeInsets.symmetric(vertical:30.0,horizontal: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,7 +19,7 @@ class CustomRow extends StatelessWidget {
                 color: const Color(0xff010104)),
           ),
           Text(
-            text2,
+            "see more",
             style: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
